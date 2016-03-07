@@ -1,0 +1,58 @@
+\section{Repo}
+\stepcounter{subsection}
+\begin{frame}
+  \frametitle{About Repo}
+  
+  \begin{itemize}
+    \item Google, 2008
+    \item Android Open Source Project (AOSP)
+    \item tool for managing multiple Git repositories
+    \item integrates with Gerrit (Code Review)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Running batch tasks}
+
+  Usual Repo workflow
+  \begin{itemize}
+    \item create a feature branch over several repositories
+    \item edit code across repositories to make the feature work
+    \item commit the changes
+    \item upload changes to Gerrit:
+      \begin{itemize}
+        \item creates one patch per commit
+        \item in case there are several commits on the same project, they will be
+          uploaded as dependent patches (on the same topic-branch)
+      \end{itemize}
+    \item code review happens ;-)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Repo commands (1)}
+  \begin{description}
+    \item[repo init -u url -m manifest] \hfill \\
+      itinialize a Repo workspace using a repository conaining XML manifests
+    \item[repo sync] \hfill \\
+      update all repositories with upstream changes
+    \item[repo start topic\_branch repo1] \hfill \\
+      start a topic-branch on a given repository
+    \item[repo prune topic\_branch] \hfill \\
+      destroy a topic-branch
+    \item[repo rebase] \hfill \\
+      rebase a topic-branch on the mainline
+    \item[repo upload] \hfill \\
+      push local commits to Gerrit
+  \end{description}
+\end{frame}
+
+\begin{frame}{Repo commands (2)}
+  \begin{description}
+    \item[repo status] \hfill \\
+      status for local repositories
+    \item[repo forall -c "command"] \hfill \\
+      iterate on repositories, execute a (series of) command
+    \item[repo forall -c "git clean -xdf; git reset -{}-hard HEAD"] \hfill \\
+      efficient workspace cleanup before running \texttt{repo sync}
+  \end{description}
+\end{frame}

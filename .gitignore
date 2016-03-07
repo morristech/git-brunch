@@ -4,6 +4,3 @@
 *.out
 *.snm
 *.toc
-
-# TL;DR
-*_tldr.tex

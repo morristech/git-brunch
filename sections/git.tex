@@ -1,0 +1,148 @@
+\section{Git}
+\stepcounter{subsection}
+\begin{frame}
+  \frametitle{About Git}
+  \begin{itemize}
+    \item Linus Torvalds, 2005
+    \item Linux kernel sources
+    \item distributed
+    \item focus on data integrity \& performance
+    \item popularized by GitHub
+  \end{itemize}
+  \begin{block}{Other distributed SCMs}
+    Mercurial (hg), GNU Bazaar (bzr), Fossil
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Git repositories (1)}
+
+  Git is a distributed SCM, which means:
+  \begin{itemize}
+    \item every working copy \textit{(fork)} -either local or distant-
+      is a repository by itself
+    \item any repository holds a complete history (for a given branch)
+    \item developments may happen across various networks/communities
+    \item keeping track of upstream changes is a prerequisite
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Commits}
+
+  \begin{itemize}
+    \item code changes are stored as \textit{commits}
+    \item a commit contains
+      \begin{itemize}
+        \item a description: what has been modified?
+        \item context information: author, signature, etc.
+        \item the actual code changes (diff)
+      \end{itemize}
+    \item and is identified by a unique \textit{revision} (SHA-1)
+    \item commits are \textit{local} objects, and contain changes locally
+      \textit{staged} until they are \textit{pushed} to a remote repository
+      (if any)
+      % ain't it subversive? :D
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Branches}
+
+  Branching is the essence of distributed SCMs
+  \begin{itemize}
+    \item any branch is a working copy
+    \item creation, merging and deletion are cheap operations
+    \item analogy: pointers, chained lists
+      \begin{itemize}
+        \item a commit points to its parent commit
+        \item a branch is a pointer to a given revision (commit)
+        \item a repository's \textit{head} refers to the most recent
+          commit of an existing branch
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Branches are cool!}
+  \begin{center}
+    % OMG!!!
+    \includegraphics[width=0.6\textwidth]{img/omgabranch.jpg}
+    % A BRANCH!!!
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Git repositories (2): remotes}
+
+  \begin{itemize}
+    \item \textit{remote}: alias for a parent repository,
+      either local or distant
+    \item any number of remotes can be added
+  \end{itemize}
+  \begin{block}{Use cases}
+    GitHub workflow, development outsourcing
+  \end{block}
+\end{frame}
+
+\begin{frame}{Git commands (1): commit changes}
+  \begin{description}
+    \item[git add] \hfill \\
+      stage changes to include them in the next commit
+    \item[git clean] \hfill \\
+      remove undesired (unversioned, ignored) changes
+    \item[git rm] \hfill \\
+      delete and unversion files
+    \item[git commit] \hfill \\
+      create a commit from staged changes
+    \item[git commit -s] \hfill \\
+      create a signed commit
+    \item[git commit -{}-amend] \hfill \\
+      alter the last commit: add/remove/modify files
+  \end{description}
+\end{frame}
+
+\begin{frame}{Git commands (2): branches}
+  \begin{description}
+    \item[git branch] \hfill \\
+      create \& delete branches
+    \item[git tag] \hfill \\
+      create \& delete tags
+    \item[git pull] \hfill \\
+      update branch information
+    \item[git push remote branch] \hfill \\
+      push local commits to a remote branch
+    \item[git rebase remote/branch] \hfill \\
+      rebase the current branch
+    \item[git reset -{}-hard revision] \hfill \\
+      reset the current branch to a reference revision
+  \end{description}
+\end{frame}
+
+\begin{frame}{Git commands (3): checkout, the all-in-one}
+  \begin{description}
+    \item[git checkout revision] \hfill \\
+      checkout a given revision: branch, tag, commit ID...
+    \item[git checkout revision file1 file2...] \hfill \\
+      checkout the selected files on a given revision
+    \item[git checkout -{}- file1 file2...] \hfill \\
+      unstage changes for the selected files
+    \item[git checkout revision -b branch] \hfill \\
+      create a branch from a given revision, and checkout it
+  \end{description}
+\end{frame}
+
+\begin{frame}{Git commands (4): information}
+  \begin{description}
+    \item[git diff] \hfill \\
+      show unstaged changes
+    \item[git diff revision] \hfill \\
+      show the differences with a given revision
+    \item[git log] \hfill \\
+      display the commit history
+    \item[git show revision] \hfill \\
+      show the commit message and the diff
+    \item[git status] \hfill \\
+      display local commits, unversioned changes...
+  \end{description}
+\end{frame}
