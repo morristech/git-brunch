@@ -1,0 +1,21 @@
+[user]
+    email = brunch@git.fun.ky
+    name = Git Brunch Jr
+
+[alias]
+    br = branch
+    co = checkout
+    ca = commit -a --amend
+    ci = commit
+    cs = commit -a -s
+    d = diff
+    f = fetch
+    p = pull
+    ri = rebase -i
+    rt = remote
+    rv = remote -v
+    sh = show
+    st = status
+
+[push]
+    default = simple

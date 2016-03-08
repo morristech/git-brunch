@@ -3,7 +3,7 @@
 # - texlive-latex
 # - texlive-latex-recommended
 
-all: clean git-brunch.pdf
+all: git-brunch.pdf
 
 clean:
 	@git clean -xdf

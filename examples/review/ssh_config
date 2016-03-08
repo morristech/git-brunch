@@ -1,0 +1,16 @@
+# main Gerrit server
+Host gerrit.git.fun.ky
+Port 29418
+User gitbrunchjr
+
+# mirror #1
+Host gerrit-mirror-1.git.fun.ky
+Port 29418
+StrictHostKeyChecking no
+User gitbrunchjr
+
+# mirror #2
+Host gerrit-mirror-2.git.fun.ky
+Port 29418
+StrictHostKeyChecking no
+User gitbrunchjr

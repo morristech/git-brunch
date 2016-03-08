@@ -1,8 +1,10 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
+\usepackage{caption}
 \usepackage{graphicx}
 \usepackage{hyperref}
-%\usepackage{listings}
+\usepackage{listings}
+
 \usetheme{Singapore}
 % hide navigation symbols
 \setbeamertemplate{navigation symbols}{}
@@ -15,6 +17,15 @@
   \end{frame}
 }
 
+\captionsetup[lstlisting]{font={small,tt}}
+
+\lstset{
+  basicstyle=\tiny\ttfamily,
+  frame=single,
+  captionpos=t,
+}
+
+
 \title{Git brunch!}
 \subtitle{SCM for the modern developer}
 \author{\href{mailto://virtualtam@flibidi.net}{Aurélien Tamisier}}
@@ -25,9 +36,10 @@
 
 \include{sections/collaborative}
 \include{sections/git}
+\include{sections/git_commands}
+\include{sections/git_config}
 \include{sections/repo}
 
-\stepcounter{subsection}
 \begin{frame}{Questions}
   \begin{columns}[t]
     \begin{column}{0.4\textwidth}
@@ -47,5 +59,6 @@
   \end{columns}
 \end{frame}
 
-\appendix
-\include{sections/resources}
+%\appendix
+%\include{sections/resources}
+\end{document}
