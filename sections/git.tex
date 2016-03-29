@@ -1,7 +1,6 @@
 \section{Git}
 \stepcounter{subsection}
-\begin{frame}
-  \frametitle{About Git}
+\begin{frame}{About Git}
   \begin{itemize}
     \item Linus Torvalds, 2005
     \item Linux kernel sources
@@ -14,22 +13,18 @@
   \end{block}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Git repositories (1)}
-
+\begin{frame}{Git repositories (1)}
   Git is a distributed SCM, which means:
   \begin{itemize}
     \item every working copy \textit{(fork)} -either local or distant-
-      is a repository by itself
+      is itself a fully functional repository
     \item any repository holds a complete history (for a given branch)
     \item developments may happen across various networks/communities
-    \item keeping track of upstream changes is a prerequisite
+    \item easy to keep track of upstream changes
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Commits}
-
+\begin{frame}{Commits}
   \begin{itemize}
     \item code changes are stored as \textit{commits}
     \item a commit contains
@@ -42,13 +37,11 @@
     \item commits are \textit{local} objects, and contain changes locally
       \textit{staged} until they are \textit{pushed} to a remote repository
       (if any)
-      % ain't it subversive? :D
+      % ain't it subversive?
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Branches}
-
+\begin{frame}{Branches}
   Branching is the essence of distributed SCMs
   \begin{itemize}
     \item any branch is a working copy
@@ -63,8 +56,80 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Branches are cool!}
+\begin{frame}{Branching example 1}
+  \begin{tikzpicture}
+    % simple branching example
+    \tikzset{commit/.style = {shape=circle,draw}}
+    \tikzset{label/.style = {shape=rectangle,draw}}
+    \tikzset{pre/.style = {->}}
+
+    % master
+    \node[commit] (m1)                 {m1};
+    \node[commit] (m2) [right=of m1]   {m2}
+       edge [pre] (m1);
+    \node[commit] (m3) [right=of m2]   {m3}
+       edge [pre] (m2);
+    \node[commit] (m4) [right=of m3]   {m4}
+       edge [pre] (m3);
+    \node[label]  (master) [right=of m4] {master}
+       edge (m4);
+
+    % hotfix branch
+    \node[commit] (h1) [above right=of m4]   {h1}
+       edge [pre] (m4);
+    \node[label]  (hotfix) [right=of h1] {hotfix}
+       edge (h1);
+
+    % feature branch
+    \node[commit] (f1) [below right=of m3]   {f1}
+       edge [pre] (m3);
+    \node[commit] (f2) [right=of f1]   {f2}
+       edge [pre] (f1);
+    \node[label]  (feature) [right=of f2] {feature}
+       edge (f2);
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Branching example 2}
+  \begin{tikzpicture}
+    % common use case: experimenting with stuff
+    % - base api / interfaces
+    % - 2 potential solutions
+    \tikzset{commit/.style = {shape=circle,draw}}
+    \tikzset{label/.style = {shape=rectangle,draw}}
+    \tikzset{pre/.style = {->}}
+
+    % master
+    \node[commit] (m1)                 {m1};
+    \node[commit] (m2) [right=of m1]   {m2}
+       edge [pre] (m1);
+    \node[label]  (master) [right=of m2] {master}
+       edge (m2);
+
+    % api / interfaces
+    \node[commit] (a1) [below right=of m2]   {a1}
+        edge [pre] (m2);
+    \node[commit] (a2) [right=of a1]   {a2}
+        edge [pre] (a1);
+    \node[label]  (api) [right=of a2] {db/api}
+        edge (a2);
+
+    % solution 1
+    \node[commit] (s1) [above right=of a2]   {s1}
+        edge [pre] (a2);
+    \node[label]  (sol1) [right=of s1] {db/sol1}
+        edge (s1);
+
+    % solution 2
+    \node[commit] (s2) [below right=of a2]   {s2}
+        edge [pre] (a2);
+    \node[label]  (sol2) [right=of s2] {db/sol2}
+        edge (s2);
+
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Branches are cool!}
   \begin{center}
     % OMG!!!
     \includegraphics[width=0.6\textwidth]{img/omgabranch.jpg}
@@ -72,9 +137,7 @@
   \end{center}
 \end{frame}
 
-\begin{frame}
-  \frametitle{Git repositories (2): remotes}
-
+\begin{frame}{Git repositories (2): remotes}
   \begin{itemize}
     \item \textit{remote}: alias for a parent repository,
       either local or distant
