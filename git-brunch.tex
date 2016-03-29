@@ -1,11 +1,16 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{caption}
+\usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{tikz}
 \usetikzlibrary{arrows,positioning}
+
+\newtoggle{GOODIES}
+\toggletrue{GOODIES}
+%\togglefalse{GOODIES}
 
 \usetheme{Singapore}
 % hide navigation symbols
@@ -53,11 +58,13 @@
       \item Demo!
       \end{itemize}
     \end{column}
-    \begin{column}{0.6\textwidth}
-      \begin{center}
-        \includegraphics[width=\textwidth]{img/gitgrumpy.jpg}
-      \end{center}
-    \end{column}
+    \iftoggle{GOODIES}{
+      \begin{column}{0.6\textwidth}
+        \begin{center}
+          \includegraphics[width=\textwidth]{img/gitgrumpy.jpg}
+        \end{center}
+      \end{column}
+    }{}
   \end{columns}
 \end{frame}
 

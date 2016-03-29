@@ -67,12 +67,14 @@
   \end{block}
 \end{frame}
 
-\begin{frame}
-  \frametitle{\$ svn commit -{}-force}
-  \begin{center}
-    \includegraphics[width=0.8\textwidth]{img/notdistributed.jpg}
-  \end{center}
-\end{frame}
+\iftoggle{GOODIES}{
+  \begin{frame}
+    \frametitle{\$ svn commit -{}-force}
+    \begin{center}
+      \includegraphics[width=0.8\textwidth]{img/notdistributed.jpg}
+    \end{center}
+  \end{frame}
+}{}
 
 \begin{frame}
   \frametitle{What about a company?}
