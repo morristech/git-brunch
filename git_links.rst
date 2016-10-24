@@ -44,6 +44,15 @@ Advanced
 * `git submodule <http://www.git-scm.com/book/en/v2/Git-Tools-Submodules>`_ - manage nested repositories
 * `git-worktree <https://git-scm.com/docs/git-worktree>`_ - manage multiple working trees
 
+Danger Zone
+^^^^^^^^^^^
+
+The following software is useful to rewrite all or part of the history, e.g. to completely remove
+some files or folders from versioning, or move a subdirectory to its own Git repository.
+
+* `git-filter-branch <https://git-scm.com/docs/git-filter-branch>`_ - rewrite the history
+* `BFG Repo-Cleaner <https://rtyley.github.io/bfg-repo-cleaner/>`_ - remove huge and sensitive fiels from the history
+
 Customizing Git
 ---------------
 
